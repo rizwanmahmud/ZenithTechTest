@@ -43,7 +43,17 @@ namespace ZenithCheckout
         /// <exception cref="NotImplementedException"></exception>
         public int GetTotalPrice()
         {
-            throw new NotImplementedException();
+            int totalPrice = 0;
+
+            foreach (var group in scannedItems.GroupBy(x => x))
+            {
+                char itemCode = group.Key;
+                int itemCount = group.Count();
+
+                totalPrice += itemCount * itemPrices[itemCode];             
+            }
+
+            return totalPrice;
         }
 
         /// <summary>
