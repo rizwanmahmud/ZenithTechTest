@@ -40,6 +40,11 @@ namespace ZenithCheckout
         /// <exception cref="NotImplementedException"></exception>
         public void Scan(string item)
         {
+            if (item.Length != 1 || !char.IsLetter(item[0]))
+            {
+                throw new ArgumentException("Invalid item code");
+            }
+
             char itemCode = char.ToUpper(item[0]);
             scannedItems.Add(itemCode);
         }
