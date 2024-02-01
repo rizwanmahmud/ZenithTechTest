@@ -40,7 +40,8 @@ namespace ZenithCheckout
         /// <exception cref="NotImplementedException"></exception>
         public void Scan(string item)
         {
-            throw new NotImplementedException();
+            char itemCode = char.ToUpper(item[0]);
+            scannedItems.Add(itemCode);
         }
     }
 }
