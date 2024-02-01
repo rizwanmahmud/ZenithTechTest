@@ -24,6 +24,19 @@ namespace ZenithCheckout
         private readonly Dictionary<char, Tuple<int, int>> itemMultiprices;
 
         /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <param name="multiprices"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public Checkout(Dictionary<char, int> prices, Dictionary<char, Tuple<int, int>> multiprices)
+        {
+            itemPrices = prices ?? throw new ArgumentNullException(nameof(prices));
+            itemMultiprices = multiprices ?? throw new ArgumentNullException(nameof(multiprices));
+            scannedItems = new List<char>();
+        }
+
+        /// <summary>
         /// Get the total price of the checkout
         /// </summary>
         /// <returns></returns>
