@@ -50,6 +50,8 @@ namespace ZenithCheckout
                 char itemCode = group.Key;
                 int itemCount = group.Count();
 
+
+                //Need a way in here to check multiprices but not sure how to:(
                 totalPrice += itemCount * itemPrices[itemCode];             
             }
 
